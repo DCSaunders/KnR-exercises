@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* count blank characters in input */
+/* Copy input to output, marking tabs, backspaces and backslashes with their escape characters */
 int main()
 {
   int c;

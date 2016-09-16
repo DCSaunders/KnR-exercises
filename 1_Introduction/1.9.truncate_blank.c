@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* count blank characters in input */
+/* Copy input to output, truncating spaces to a maximum of one */
 int main()
 {
   int c;
