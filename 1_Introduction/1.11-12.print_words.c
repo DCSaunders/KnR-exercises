@@ -3,7 +3,7 @@
 #define IN  1
 #define OUT 0
 
-/* Prints input to output one word at a time */
+/* Prints input to output one word per line */
 
 int main()
 {
