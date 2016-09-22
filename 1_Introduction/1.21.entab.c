@@ -14,6 +14,12 @@ int main()
 	++col;
 	++blank_count;
       }
+    
+    else if (c == '\t')
+      {
+	col += TABWIDTH;
+	blank_count +=TABWIDTH;
+      }
     else
       {
 	if (blank_count > 0)
