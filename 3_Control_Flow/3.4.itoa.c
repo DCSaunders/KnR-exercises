@@ -2,13 +2,15 @@
 #include <string.h>
 #define MAXLEN 1000
 
+/*The original itoa function does not handle the largest negative number. This is because the number is first made positive (if negative) by multiplying by sign. |largest possible negative int| > |largest positive int|, so this would fail according to the values in limits.h (-2147483648)*/
+
 void itoa(int n, char s[]);
 void reverse(char s[]);
 
 int main()
 {
   char s[MAXLEN];
-  int n = 7;
+  int n = -2147483648;
   itoa(n, s);
   printf("%s\n", s);
   return 0;
@@ -17,12 +19,11 @@ int main()
 void itoa(int n, char s[])
 {
   int i, sign;
-  if((sign = n) < 0)
-    n = -n;
+  sign = (n < 0) ? -1 : 1;
   i = 0;
   do {
-    s[i++] = n % 10 + '0';
-  } while ((n /= 10) > 0);
+    s[i++] = sign * (n % 10) + '0';
+  } while (sign * (n /= 10) > 0);
   if (sign < 0)
     s[i++] = '-';
   s[i] = '\0';
